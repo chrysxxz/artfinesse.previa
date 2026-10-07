@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ArtFinesse Estética Automotiva em Curitiba: PPF, vitrificação, películas e polimento no Guaíra. Nota 5,0 com 311 avaliações no Google. Orçamento pelo WhatsApp.">
+<title>ArtFinesse Estética Automotiva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Yellowtail&display=swap">
+<style>
+/* Layout: site de uma página para estética automotiva — hero escuro com o carro, prova social do Google, serviços, simulador de orçamento que abre o WhatsApp, antes/depois, oficina e contato. Visual único (verde floresta + creme da marca), sem tema escuro alternativo. */
+:root{
+  --forest:#16260f; --green:#2f5419; --leaf:#4e8a2a; --cream:#f2ecdc; --paper:#faf7ef;
+  --ink:#141a11; --muted:#5d6656; --gold:#e3b34a; --line:#ddd4bd; --white:#ffffff;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"DM Sans", "Segoe UI", system-ui, sans-serif;
+  --script:"Yellowtail", "Brush Script MT", cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance;letter-spacing:.01em}
+h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900}
+h3{font-size:1.6rem;font-weight:700}
+.script{font-family:var(--script);text-transform:none;font-weight:400;letter-spacing:0;color:var(--leaf)}
+.eyebrow{font:700 .75rem/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--leaf)}
+section{padding-block:72px}
+.lede{max-width:60ch;color:var(--muted);margin:14px 0 0}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 .95rem var(--body);text-decoration:none;border-radius:999px;padding:14px 22px;border:2px solid transparent;cursor:pointer}
+.btn-wa{background:var(--gold);color:var(--forest)}
+.btn-wa:hover{background:#f0c25c}
+.btn-line{border-color:currentColor;color:inherit;background:transparent}
+.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wa-ico{width:20px;height:20px;flex:none}
+
+/* barra da prévia */
+.preview{background:var(--ink);color:#cfd6c8;font-size:.78rem;text-align:center;padding:7px 16px}
+.preview b{color:var(--gold)}
+
+/* topo */
+.nav{background:var(--forest);color:var(--cream);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-bottom:1px solid #2a3d22}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{font-family:var(--script);font-size:1.9rem;line-height:1;color:var(--cream);text-decoration:none}
+.logo small{display:block;font:700 .55rem/1 var(--body);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.links{display:flex;gap:22px;font-size:.9rem}
+.links a{text-decoration:none;opacity:.85}
+.links a:hover{opacity:1;color:var(--gold)}
+.nav .btn{padding:10px 16px;font-size:.85rem}
+@media (max-width:860px){.links{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(120% 90% at 70% 10%,#2c4a1c 0%,var(--forest) 60%);color:var(--cream);padding-block:56px 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);font-weight:900}
+.hero h1 .script{display:block;font-size:.62em;color:var(--gold);margin-bottom:4px}
+.hero p{max-width:46ch;color:#d6dccb;font-size:1.08rem;margin:18px 0 26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.rating{display:flex;align-items:center;gap:12px;margin-top:28px;font-size:.9rem;color:#d6dccb}
+.stars{color:var(--gold);letter-spacing:2px;font-size:1.1rem}
+.rating b{color:var(--cream);font-size:1.3rem;font-family:var(--display)}
+.car-stage{position:relative;min-width:0}
+.car-stage svg{width:100%;height:auto;display:block}
+.shine{animation:shine 5.5s ease-in-out infinite}
+@keyframes shine{0%,35%{transform:translateX(-420px)}70%,100%{transform:translateX(620px)}}
+.floor{height:56px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.car-stage{margin-top:8px}}
+
+/* prova social */
+.proof{background:var(--cream);padding-block:56px}
+.proof-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}
+.score-card{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px 20px}
+.score-card .big{font:900 3rem/1 var(--display);color:var(--forest)}
+.score-card small{display:block;color:var(--muted)}
+.quotes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.quote{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:10px;align-content:start}
+.quote p{margin:0;font-size:.98rem}
+.quote span{font-size:.8rem;color:var(--muted)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;border-top:1px solid var(--line);padding-top:24px}
+.nums b{display:block;font:900 2.4rem/1 var(--display);color:var(--green);font-variant-numeric:tabular-nums}
+.nums span{color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.quotes{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.quotes{grid-template-columns:1fr}.nums{grid-template-columns:1fr}}
+
+/* serviços */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.svc{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:12px;align-content:start;position:relative}
+.svc .tag{font:700 .68rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--leaf)}
+.svc p{margin:0;color:var(--muted)}
+.svc ul{margin:0;padding-left:18px;font-size:.92rem}
+.svc ul li{margin-bottom:4px}
+.svc.hot{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.svc.hot p{color:#cdd5c2}.svc.hot .tag{color:var(--gold)}
+.svc .pick{margin-top:6px;justify-self:start;font:700 .85rem var(--body);background:none;border:0;padding:0;color:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.more{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.more span{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.9rem}
+@media (max-width:900px){.feat{grid-template-columns:1fr}}
+
+/* orçamento */
+.quote-sec{background:var(--forest);color:var(--cream)}
+.qgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.quote-sec .lede{color:#cdd5c2}
+.form{background:#1f3216;border:1px solid #33502a;border-radius:20px;padding:24px;display:grid;gap:18px}
+.field{display:grid;gap:8px;min-width:0}
+.field label,.field legend{font:700 .78rem var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{font:500 .92rem var(--body);letter-spacing:0;text-transform:none;color:var(--cream);border:1px solid #47663a;border-radius:999px;padding:8px 14px;cursor:pointer}
+.chips input:checked+label{background:var(--gold);color:var(--forest);border-color:var(--gold)}
+.chips input:focus-visible+label{outline:3px solid var(--gold);outline-offset:2px}
+.row2{display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.form input[type=text],.form input[type=number],.form select{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid #47663a;border-radius:10px;padding:11px 12px}
+.preview-msg{background:#132009;border:1px dashed #47663a;border-radius:12px;padding:14px;font-size:.92rem;color:#dfe5d6;white-space:pre-wrap;min-height:84px}
+.preview-msg small{display:block;color:var(--gold);font:700 .7rem var(--body);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.hint{font-size:.85rem;color:#b9c3ad;margin:0}
+.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;counter-increment:s}
+.steps li::before{content:counter(s);font:900 1.6rem/1 var(--display);color:var(--forest);background:var(--gold);border-radius:50%;width:40px;height:40px;display:grid;place-items:center}
+.steps b{display:block;color:var(--cream)}
+.steps span{color:#cdd5c2;font-size:.95rem}
+@media (max-width:900px){.qgrid{grid-template-columns:1fr}}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+
+/* antes e depois */
+.ba{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+.compare{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/10;max-width:100%;background:#222;user-select:none;border:1px solid var(--line)}
+.layer{position:absolute;inset:0}
+.after{background:
+  linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 38%,transparent 46%),
+  linear-gradient(115deg,transparent 58%,rgba(255,255,255,.25) 62%,transparent 66%),
+  linear-gradient(180deg,#0b1c3a 0%,#123068 45%,#0a1a36 100%)}
+.before{background:
+  repeating-radial-gradient(circle at 30% 40%,rgba(255,255,255,.07) 0 2px,transparent 2px 9px),
+  repeating-radial-gradient(circle at 75% 65%,rgba(255,255,255,.06) 0 1px,transparent 1px 7px),
+  linear-gradient(180deg,#3a4250 0%,#4a5160 50%,#353b47 100%);clip-path:inset(0 50% 0 0)}
+.badge{position:absolute;top:14px;font:700 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase;background:rgba(0,0,0,.55);color:#fff;padding:6px 10px;border-radius:6px}
+.badge.l{left:14px}.badge.r{right:14px}
+.divider{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--gold);transform:translateX(-50%)}
+.divider::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--gold);color:var(--forest);display:grid;place-items:center;font-weight:700}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.note{font-size:.85rem;color:var(--muted);margin-top:10px}
+@media (max-width:900px){.ba{grid-template-columns:1fr}}
+
+/* oficina e contato */
+.visit{background:var(--cream)}
+.vgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:28px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:14px;align-content:start}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;font-size:.95rem}
+.kv dt{color:var(--muted)}.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.vgrid>*{min-width:0}
+@media (max-width:420px){.kv{grid-template-columns:1fr;gap:2px}.kv dd{margin-bottom:8px}}
+.map{border-radius:18px;background:
+  linear-gradient(90deg,transparent 48%,#d8cfb6 48% 52%,transparent 52%),
+  linear-gradient(0deg,transparent 46%,#d8cfb6 46% 50%,transparent 50%),
+  linear-gradient(35deg,transparent 60%,#e3dbc5 60% 63%,transparent 63%),#efe8d6;
+  min-height:240px;position:relative;border:1px solid var(--line);display:grid;place-items:center}
+.pin{background:var(--forest);color:var(--cream);border-radius:12px;padding:12px 16px;text-align:center;font-size:.9rem;box-shadow:0 10px 24px rgba(22,38,15,.25)}
+.pin b{display:block;font-family:var(--display);font-size:1.3rem;text-transform:uppercase}
+.faq{display:grid;gap:10px;margin-top:28px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.faq summary{cursor:pointer;font-weight:700}
+.faq p{margin:10px 0 0;color:var(--muted)}
+@media (max-width:860px){.vgrid{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#aeb6a6;font-size:.85rem;padding-block:28px 96px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer b{color:var(--cream)}
+
+/* barra fixa de WhatsApp no celular */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(22,38,15,.96);display:none}
+.mbar .btn{width:100%;justify-content:center}
+@media (max-width:720px){.mbar{display:block}}
+</style>
+</head>
+<body>
+
+<div class="preview">Prévia do novo site · desenvolvida por <b>Chrysxxz Digital</b> para a ArtFinesse</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#topo">ArtFinesse<small>Estética &amp; personalização automotiva</small></a>
+    <nav class="links" aria-label="Seções">
+      <a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#trabalhos">Antes e depois</a><a href="#avaliacoes">Avaliações</a><a href="#oficina">Onde estamos</a>
+    </nav>
+    <a class="btn btn-wa" href="#orcamento">Pedir orçamento</a>
+  </div>
+</header>
+
+<main id="topo">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span class="script">Novo de novo.</span>Proteção e brilho que valorizam o seu carro</h1>
+      <p>PPF, vitrificação, películas e polimento no Guaíra, em Curitiba. Atendimento de quem é apaixonado por carro, com cuidado em cada detalhe.</p>
+      <div class="cta-row">
+        <a class="btn btn-wa" data-wa="Olá! Vim pelo site e gostaria de um orçamento." href="#" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>Chamar no WhatsApp</a>
+        <a class="btn btn-line" href="#servicos">Ver serviços</a>
+      </div>
+      <div class="rating" aria-label="Nota 5,0 no Google com 311 avaliações">
+        <b>5,0</b><span class="stars" aria-hidden="true">★★★★★</span><span>311 avaliações no Google</span>
+      </div>
+    </div>
+    <div class="car-stage" aria-hidden="true">
+      <svg viewBox="0 0 560 300">
+        <defs>
+          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c6b22"/><stop offset=".55" stop-color="#1d3712"/><stop offset="1" stop-color="#0d1a08"/></linearGradient>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9fb7a2"/><stop offset="1" stop-color="#25362a"/></linearGradient>
+          <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+          <clipPath id="carclip"><path d="M40 200 C40 176 58 166 92 160 L170 150 C200 118 240 96 300 94 C356 92 398 110 430 146 L486 156 C512 162 522 176 522 200 L522 214 L40 214 Z"/></clipPath>
+        </defs>
+        <ellipse cx="282" cy="236" rx="250" ry="14" fill="#000" opacity=".35"/>
+        <path d="M40 200 C40 176 58 166 92 160 L170 150 C200 118 240 96 300 94 C356 92 398 110 430 146 L486 156 C512 162 522 176 522 200 L522 214 L40 214 Z" fill="url(#body)"/>
+        <path d="M190 150 C214 124 248 110 296 108 L300 150 Z" fill="url(#glass)"/>
+        <path d="M312 108 C356 108 390 120 414 148 L314 150 Z" fill="url(#glass)"/>
+        <path d="M60 186 L500 182" stroke="#6fa043" stroke-width="2" opacity=".6"/>
+        <rect x="486" y="170" width="28" height="9" rx="4" fill="#e3b34a"/>
+        <rect x="44" y="172" width="22" height="8" rx="4" fill="#b23a2a"/>
+        <g clip-path="url(#carclip)"><rect class="shine" x="0" y="80" width="140" height="160" fill="url(#sweep)" transform="skewX(-20)"/></g>
+        <g fill="#0b0f09"><circle cx="150" cy="214" r="36"/><circle cx="420" cy="214" r="36"/></g>
+        <g fill="none" stroke="#9aa59a" stroke-width="5"><circle cx="150" cy="214" r="20"/><circle cx="420" cy="214" r="20"/></g>
+        <g fill="#cfd6cf"><circle cx="150" cy="214" r="6"/><circle cx="420" cy="214" r="6"/></g>
+      </svg>
+      <div class="floor"></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" id="avaliacoes">
+  <div class="wrap">
+    <div class="proof-top">
+      <div>
+        <span class="eyebrow">O que dizem no Google</span>
+        <h2>311 clientes, <span class="script">nota máxima</span></h2>
+      </div>
+      <div class="score-card"><span class="big">5,0</span><div><span class="stars" aria-hidden="true">★★★★★</span><small>311 avaliações · Google</small></div></div>
+    </div>
+    <div class="quotes">
+      <article class="quote"><p>“O melhor custo-benefício em estética automotiva.”</p><span>Cliente · Google</span></article>
+      <article class="quote"><p>“Atendimento pelo WhatsApp rápido, informações claras.”</p><span>Cliente · Google</span></article>
+      <article class="quote"><p>“Fiz a vitrificação de 3 anos e saí extremamente satisfeito.”</p><span>Cliente · Google</span></article>
+      <article class="quote"><p>“Abriram a loja no feriado pra eu pegar o carro.”</p><span>Cliente · Google</span></article>
+    </div>
+    <div class="nums">
+      <div><b>+9.600</b><span>clientes atendidos</span></div>
+      <div><b>+1.350</b><span>projetos executados</span></div>
+      <div><b>16 anos</b><span>de experiência dos sócios na área</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <span class="eyebrow">Serviços</span>
+    <h2>Proteger, renovar, <span class="script">valorizar</span></h2>
+    <p class="lede">Cada carro chega com uma necessidade. A equipe avalia a pintura e indica o tratamento certo antes de qualquer serviço.</p>
+    <div class="feat">
+      <article class="svc hot">
+        <span class="tag">Mais procurado</span>
+        <h3>Proteção PPF</h3>
+        <p>Película transparente que protege a pintura contra pedrisco, riscos e manchas, sem mudar a cor do carro.</p>
+        <ul><li>Carro inteiro ou áreas de impacto (capô, para-choque, retrovisores)</li><li>Ideal para carro zero e para quem pega estrada</li></ul>
+        <button class="pick" type="button" data-svc="Proteção PPF">Quero orçamento de PPF</button>
+      </article>
+      <article class="svc">
+        <span class="tag">Brilho que dura</span>
+        <h3>Vitrificação</h3>
+        <p>Camada que deixa a pintura com brilho profundo e facilita a limpeza no dia a dia.</p>
+        <ul><li>Inclui descontaminação e polimento de preparo</li><li>Opções de durabilidade conforme o uso do carro</li></ul>
+        <button class="pick" type="button" data-svc="Vitrificação">Quero orçamento de vitrificação</button>
+      </article>
+      <article class="svc">
+        <span class="tag">Conforto e privacidade</span>
+        <h3>Películas</h3>
+        <p>Controle solar para vidros, menos calor na cabine e mais proteção para o interior.</p>
+        <ul><li>Várias tonalidades dentro da legislação</li><li>Aplicação limpa, sem bolhas</li></ul>
+        <button class="pick" type="button" data-svc="Películas">Quero orçamento de película</button>
+      </article>
+    </div>
+    <div class="more" aria-label="Outros serviços">
+      <span>Polimento técnico</span><span>Higienização interna</span><span>Lavagem detalhada</span><span>Martelinho de ouro</span><span>Micro pintura</span><span>Plotagem</span>
+    </div>
+  </div>
+</section>
+
+<section class="quote-sec" id="orcamento">
+  <div class="wrap qgrid">
+    <div>
+      <span class="eyebrow" style="color:var(--gold)">Orçamento em 1 minuto</span>
+      <h2>Monte seu pedido e <span class="script" style="color:var(--gold)">chame no WhatsApp</span></h2>
+      <p class="lede">Escolha o serviço e informe o carro. A mensagem já chega pronta para a equipe, sem ida e volta de perguntas.</p>
+      <ol class="steps">
+        <li><div><b>Você manda o pedido</b><span>Serviço, modelo e ano do carro.</span></div></li>
+        <li><div><b>A equipe responde com o orçamento</b><span>Se precisar, agenda uma avaliação da pintura.</span></div></li>
+        <li><div><b>Você agenda a data</b><span>E recebe o carro pronto no prazo combinado.</span></div></li>
+      </ol>
+    </div>
+    <form class="form" id="qform" novalidate>
+      <fieldset class="field">
+        <legend>Serviço</legend>
+        <div class="chips" id="chips"></div>
+      </fieldset>
+      <div class="row2">
+        <div class="field"><label for="modelo">Modelo do carro</label><input id="modelo" type="text" placeholder="Ex.: Corolla Cross" value="Corolla Cross" autocomplete="off"></div>
+        <div class="field"><label for="ano">Ano</label><input id="ano" type="number" inputmode="numeric" placeholder="2024" value="2024" min="1950" max="2027"></div>
+      </div>
+      <div class="field"><label for="cor">Cor (opcional)</label><input id="cor" type="text" placeholder="Ex.: preto" autocomplete="off"></div>
+      <div class="preview-msg" id="pmsg" aria-live="polite"></div>
+      <a class="btn btn-wa" id="send" href="#" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>Enviar pedido no WhatsApp</a>
+      <p class="hint">Abre o WhatsApp da ArtFinesse, (41) 98885-2971, com a mensagem acima.</p>
+    </form>
+  </div>
+</section>
+
+<section id="trabalhos">
+  <div class="wrap ba">
+    <div>
+      <span class="eyebrow">Antes e depois</span>
+      <h2>Arraste e veja <span class="script">a diferença</span></h2>
+      <p class="lede">Pintura opaca e cheia de micro riscos de um lado, polimento e vitrificação do outro. É isso que o cliente vê quando busca o carro.</p>
+      <p class="note">Nesta prévia o exemplo é ilustrativo. No site final entram fotos reais dos trabalhos da ArtFinesse.</p>
+    </div>
+    <div>
+      <div class="compare" id="cmp">
+        <div class="layer after"></div>
+        <div class="layer before" id="before"></div>
+        <span class="badge l">Antes</span><span class="badge r">Depois</span>
+        <div class="divider" id="div"></div>
+        <input id="slider" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="oficina">
+  <div class="wrap">
+    <span class="eyebrow">Onde estamos</span>
+    <h2>Venha conhecer <span class="script">a oficina</span></h2>
+    <div class="vgrid" style="margin-top:28px">
+      <div class="card">
+        <dl class="kv">
+          <dt>Endereço</dt><dd>Av. Presidente Kennedy, 1931<br>Guaíra · Curitiba/PR</dd>
+          <dt>Horário</dt><dd>Segunda a sexta, 8h às 18h</dd>
+          <dt>WhatsApp</dt><dd>(41) 98885-2971</dd>
+          <dt>E-mail</dt><dd>contato@artfinesse.com.br</dd>
+          <dt>Instagram</dt><dd>@_artfinesse</dd>
+        </dl>
+        <div class="cta-row">
+          <a class="btn btn-wa" data-wa="Olá! Vim pelo site e gostaria de agendar uma avaliação." href="#" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=ArtFinesse+Est%C3%A9tica+Automotiva+Av.+Pres.+Kennedy+1931+Curitiba" target="_blank" rel="noopener">Abrir no Maps</a>
+        </div>
+      </div>
+      <div class="map" aria-hidden="true"><div class="pin"><b>ArtFinesse</b>Av. Pres. Kennedy, 1931</div></div>
+    </div>
+    <div class="faq">
+      <details><summary>Qual a diferença entre PPF e vitrificação?</summary><p>O PPF é uma película física que absorve impactos de pedrisco e riscos. A vitrificação é uma camada que dá brilho e facilita a limpeza, mas não segura impacto. Muitos clientes combinam os dois: PPF nas áreas de impacto e vitrificação no resto do carro.</p></details>
+      <details><summary>Quanto tempo o carro fica na oficina?</summary><p>Depende do serviço e do estado da pintura. O prazo é informado junto com o orçamento, antes de você deixar o carro.</p></details>
+      <details><summary>Preciso levar o carro para fazer orçamento?</summary><p>Para a maioria dos serviços dá para começar pelo WhatsApp com modelo e ano. Polimento e reparos de pintura costumam pedir uma avaliação rápida na oficina.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>ArtFinesse</b> · Estética e personalização automotiva · CNPJ 37.482.500/0001-17</span>
+    <span>Desenvolvido por <b>Chrysxxz Digital</b> | Consultoria</span>
+  </div>
+</footer>
+
+<div class="mbar"><a class="btn btn-wa" href="#orcamento">Pedir orçamento pelo WhatsApp</a></div>
+
+<script>
+(function(){
+  var PHONE="5541988852971";
+  var waUrl=function(t){return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(t)};
+  document.querySelectorAll("[data-wa]").forEach(function(a){a.href=waUrl(a.getAttribute("data-wa"))});
+
+  var services=["Proteção PPF","Vitrificação","Películas","Polimento","Higienização interna","Lavagem detalhada","Martelinho de ouro","Micro pintura","Plotagem"];
+  var chips=document.getElementById("chips");
+  services.forEach(function(s,i){
+    var id="svc"+i;
+    chips.insertAdjacentHTML("beforeend",'<input type="checkbox" id="'+id+'" value="'+s+'"'+(i===1?" checked":"")+'><label for="'+id+'">'+s+'</label>');
+  });
+  var f=document.getElementById("qform"),out=document.getElementById("pmsg"),send=document.getElementById("send");
+  function build(){
+    var picked=[].slice.call(chips.querySelectorAll("input:checked")).map(function(x){return x.value});
+    var modelo=document.getElementById("modelo").value.trim(),ano=document.getElementById("ano").value.trim(),cor=document.getElementById("cor").value.trim();
+    var carro=[modelo,ano].filter(Boolean).join(" ")+(cor?(", cor "+cor):"");
+    var serv=picked.length?picked.join(", ").replace(/, ([^,]*)$/," e $1"):"um serviço";
+    var msg="Olá, ArtFinesse! Vim pelo site.\nQuero orçamento de "+serv+(carro?(" para o meu "+carro):"")+".";
+    out.innerHTML="<small>Sua mensagem</small>"+msg.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+    send.href=waUrl(msg);
+  }
+  f.addEventListener("input",build);f.addEventListener("change",build);
+  f.addEventListener("submit",function(e){e.preventDefault()});
+  document.querySelectorAll(".pick").forEach(function(b){b.addEventListener("click",function(){
+    chips.querySelectorAll("input").forEach(function(x){x.checked=(x.value===b.dataset.svc)});
+    build();document.getElementById("orcamento").scrollIntoView({behavior:"smooth"});
+  })});
+  build();
+
+  var sl=document.getElementById("slider"),bf=document.getElementById("before"),dv=document.getElementById("div");
+  function upd(){var v=sl.value;bf.style.clipPath="inset(0 "+(100-v)+"% 0 0)";dv.style.left=v+"%"}
+  sl.addEventListener("input",upd);upd();
+})();
+</script>
+
+</body>
+</html>
